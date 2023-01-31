@@ -8,7 +8,6 @@ from setuptools import find_packages
 _PROJECT_ROOT = "."
 _SOURCE_ROOT = os.path.join(_PROJECT_ROOT, "src")
 _PACKAGE_ROOT = os.path.join(_SOURCE_ROOT, "lightning")
-_PATH_REQUIREMENTS = os.path.join("requirements")
 _FREEZE_REQUIREMENTS = bool(int(os.environ.get("FREEZE_REQUIREMENTS", 0)))
 
 
@@ -81,7 +80,7 @@ def _setup_args(**kwargs: Any) -> Dict[str, Any]:
             ],
         },
         setup_requires=[],
-        install_requires=_SETUP_TOOLS.load_requirements(_PATH_REQUIREMENTS, unfreeze="all"),
+        install_requires=[],
         extras_require={},  # todo: consider porting all other packages extras with prefix
         project_urls={
             "Bug Tracker": "https://github.com/Lightning-AI/lightning/issues",
